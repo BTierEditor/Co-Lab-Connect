@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "275134730166",
+    "project_id": "co-lab-connect-b9458",
+    "storage_bucket": "co-lab-connect-b9458.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275134730166:android:dff20014cb174905dafb17",
+        "android_client_info": {
+          "package_name": "com.example.co_labconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_JPB70Db_EVhnGEaSh7GFlxB1WWFmCFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+<!--    <item android:id="@+id/map"-->
+<!--        android:icon="@drawable/map_black"-->
+<!--        android:title="Map"/>-->
+
+<!--    <item android:id="@+id/fire"-->
+<!--        android:icon="@drawable/fire_logo"-->
+<!--        android:title="fireplace"/>-->
+
+<!--    <item android:id="@+id/your_post"-->
+<!--        android:icon="@drawable/send_black"-->
+<!--        android:title="Your Post"/>-->
+
+<!--    <item android:id="@+id/friend_request"-->
+<!--        android:icon="@drawable/friend_black"-->
+<!--        android:title="Friend request"/>-->
+
+
+</menu>

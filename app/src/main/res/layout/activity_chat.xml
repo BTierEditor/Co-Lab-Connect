@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/chat_background"
+    android:layout_height="match_parent"
+    tools:context=".Chat">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        app:title="Chat"
+        app:titleMarginStart="30dp"
+        app:titleTextColor="@color/white"
+        android:layout_height="50dp"
+        android:layout_marginTop="3dp"
+        android:elevation="15dp"
+        android:background="@drawable/toolbar_shape"/>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/chat_linear_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+        <LinearLayout
+            android:id="@+id/chat_linear_layout"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/add_msg"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="Write Your Message"
+                android:textColor="@color/black"
+                android:textColorHighlight="#000000"
+                android:textColorLink="#000000" />
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/send_image_out"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/gray"
+                android:layout_marginStart="5dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/add_image_black"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/send_message_out"
+                android:layout_width="50dp"
+                android:backgroundTint="@color/gray"
+                android:layout_height="match_parent"
+                android:src="@drawable/send_black"/>
+
+        </LinearLayout>
+</RelativeLayout>
