@@ -20,6 +20,7 @@ public class map extends AppCompatActivity {
     CardView box;
     AppCompatButton navigation,image;
     AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,card_207_closing,card_201_closing;
+    String NameFromDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
