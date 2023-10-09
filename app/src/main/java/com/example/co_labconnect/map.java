@@ -452,9 +452,9 @@ public class map extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
-                                card_201.setAnimation(animSlideout);
-                                card_201.startAnimation(animSlideout);
-                                card_201.setVisibility(View.GONE);
+                                card_cc3.setAnimation(animSlideout);
+                                card_cc3.startAnimation(animSlideout);
+                                card_cc3.setVisibility(View.GONE);
 
                                 click_213.setClickable(true);
                                 click_214.setClickable(true);
