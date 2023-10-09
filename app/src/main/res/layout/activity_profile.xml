@@ -110,12 +110,12 @@
                 android:textColor="#000000"
                 android:textColorHint="@color/gray" />
 
-            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="640dp"
-                android:text="Created by B-Tier Editor"/>
+<!--            <androidx.appcompat.widget.AppCompatAutoCompleteTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_marginTop="640dp"-->
+<!--                android:text="Created by B-Tier Editor"/>-->
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/terms_and_conditions"

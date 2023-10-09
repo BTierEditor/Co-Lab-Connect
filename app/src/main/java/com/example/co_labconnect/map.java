@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -15,17 +16,20 @@ import android.widget.Toast;
 
 public class map extends AppCompatActivity {
 
-    RelativeLayout click_213,click_214,click_215,click_dowm,click_up,click_216,click_207,click_201;
-    CardView card_214,card_213,card_215,card_216,card_207,card_201;
+    RelativeLayout click_213,click_214,click_215,click_dowm,click_up,click_216,click_207,click_201,click_203;
+    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203;
     CardView box;
     AppCompatButton navigation,image;
-    AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,card_207_closing,card_201_closing;
-    String NameFromDatabase,EmailFromDatabase,DateOfBirthFromDatabase;
+    AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,card_207_closing,card_201_closing,card_203_closing;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         click_213 = findViewById(R.id.click_213);
@@ -54,6 +58,10 @@ public class map extends AppCompatActivity {
         click_201 = findViewById(R.id.click_201);
         card_201 = findViewById(R.id.card_201);
         card_201_closing = findViewById(R.id.card_201_closeing);
+
+        click_203 = findViewById(R.id.click_203);
+        card_203 = findViewById(R.id.card_203);
+        card_203_closing = findViewById(R.id.card_203_closeing);
 
         navigation = findViewById(R.id.navigation_click);
         image = findViewById(R.id.image_click);
