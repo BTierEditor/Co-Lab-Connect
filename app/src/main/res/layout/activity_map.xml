@@ -518,6 +518,78 @@
     </androidx.cardview.widget.CardView>
 
 
+    <RelativeLayout
+        android:id="@+id/click_cc3"
+        android:layout_width="85dp"
+        android:layout_height="90dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="424dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_cc3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="40dp"
+        app:cardCornerRadius="30dp"
+
+        android:visibility="gone"
+
+        android:layout_marginHorizontal="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Labratory - 208[CC3]"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="55dp"
+                android:src="@drawable/plab_216" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/card_cc3_closeing"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/previous_white"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/map_custom_button"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="vertical"
+                android:layout_marginTop="580dp">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="CC3 Lab"
+                    android:textSize="20dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="Best internet connectivity and"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="usually Teachers Works there"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/box_card"
