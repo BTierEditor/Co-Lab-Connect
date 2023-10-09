@@ -8,7 +8,6 @@
     tools:context=".map">
 
 
-
     <RelativeLayout
         android:id="@+id/click_213"
         android:layout_width="80dp"
