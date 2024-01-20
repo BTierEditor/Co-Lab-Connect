@@ -31,7 +31,6 @@ android {
 
 dependencies {
 
-//    api ("com.theartofdev.edmodo:android-image-cropper:2.8.+")
     implementation ("com.airbnb.android:lottie:3.4.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
