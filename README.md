@@ -1,4 +1,6 @@
 # Co-Lab-Connect
-This code is written by B-Tier Editor
-<br>
-Aurthor = Ankur Soni
+: user only java.
+: Do not commite anything without any backup.
+: Do not share source/code.
+: Connected with Firebase Database.
+: Notify before any chances.
