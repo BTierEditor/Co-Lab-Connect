@@ -16,12 +16,13 @@ import android.widget.Toast;
 
 public class map extends AppCompatActivity {
 
-    RelativeLayout click_213,click_214,click_215,click_dowm,click_up,click_216,click_207,click_201,click_203,click_cc3,click_cc2;
-    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203,card_cc3,card_cc2;
+    RelativeLayout click_213,click_214,click_215,click_dowm,click_up,click_216,click_207,click_201,click_203,
+            click_cc3,click_cc2,click_cc1;
+    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203,card_cc3,card_cc2,card_cc1;
     CardView box;
     AppCompatButton navigation,image;
     AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,
-            card_207_closing,card_201_closing,card_203_closing,card_closing_cc3,card_closing_cc2;
+            card_207_closing,card_201_closing,card_203_closing,card_closing_cc3,card_closing_cc2,card_cc1_closeing;
 
 
 
@@ -72,6 +73,10 @@ public class map extends AppCompatActivity {
         card_cc2 = findViewById(R.id.card_cc2);
         card_closing_cc2 = findViewById(R.id.card_cc2_closeing);
 
+        click_cc1 = findViewById(R.id.click_cc1);
+        card_cc1 = findViewById(R.id.card_cc1);
+        card_cc1_closeing = findViewById(R.id.card_cc1_closeing);
+
         navigation = findViewById(R.id.navigation_click);
         image = findViewById(R.id.image_click);
 
@@ -94,6 +99,7 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
+                click_cc1.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -124,6 +130,7 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
+                                click_cc1.setClickable(true);
                             }
                         });
                     }
@@ -148,6 +155,7 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
+                click_cc1.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -179,6 +187,7 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_201.setClickable(true);
+                                click_cc1.setClickable(true);
                             }
                         });
                     }
@@ -203,7 +212,7 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
-
+                click_cc1.setClickable(false);
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -234,6 +243,7 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
+                                click_cc1.setClickable(true);
 
                             }
                         });
@@ -259,6 +269,7 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
+                click_cc1.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -289,6 +300,7 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
+                                click_cc1.setClickable(true);
 
                             }
                         });
@@ -328,6 +340,7 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
+                click_cc1.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -358,7 +371,7 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
-
+                                click_cc1.setClickable(true);
                             }
                         });
                     }
@@ -383,6 +396,7 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
+                click_cc1.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -414,6 +428,7 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
+                                click_cc1.setClickable(true);
 
                             }
                         });
@@ -440,6 +455,10 @@ public class map extends AppCompatActivity {
                 click_207.setClickable(false);
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
+                click_cc2.setClickable(false);
+                click_cc1.setClickable(false);
+
+
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -470,6 +489,8 @@ public class map extends AppCompatActivity {
                                 click_207.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
+                                click_cc1.setClickable(true);
+
                             }
                         });
                     }
@@ -481,7 +502,6 @@ public class map extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
-
                 box.setVisibility(View.VISIBLE);
                 box.setAnimation(animSlide);
                 box.startAnimation(animSlide);
@@ -496,6 +516,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
+                click_cc1.setClickable(false);
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -513,9 +534,9 @@ public class map extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
-                                card_cc3.setAnimation(animSlideout);
-                                card_cc3.startAnimation(animSlideout);
-                                card_cc3.setVisibility(View.GONE);
+                                card_cc2.setAnimation(animSlideout);
+                                card_cc2.startAnimation(animSlideout);
+                                card_cc2.setVisibility(View.GONE);
 
                                 click_213.setClickable(true);
                                 click_214.setClickable(true);
@@ -527,14 +548,71 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc2.setClickable(true);
+                                click_cc1.setClickable(true);
                             }
                         });
                     }
                 });
             }
         });
+//-=========================================cc1=================================================//
+        click_cc1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                box.setVisibility(View.VISIBLE);
+                box.setAnimation(animSlide);
+                box.startAnimation(animSlide);
 
+                click_213.setClickable(false);
+                click_214.setClickable(false);
+                click_215.setClickable(false);
+                click_dowm.setClickable(false);
+                click_up.setClickable(false);
+                click_216.setClickable(false);
+                click_207.setClickable(false);
+                click_201.setClickable(false);
+                click_cc3.setClickable(false);
+                click_cc2.setClickable(false);
+                click_cc1.setClickable(false);
+                image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                        box.setVisibility(View.GONE);
+                        box.setAnimation(animSlideout);
+                        box.startAnimation(animSlideout);
 
+                        Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                        card_cc1.setVisibility(View.VISIBLE);
+                        card_cc1.setAnimation(animSlide);
+                        card_cc1.startAnimation(animSlide);
+
+                        card_cc1_closeing.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                                card_cc1.setAnimation(animSlideout);
+                                card_cc1.startAnimation(animSlideout);
+                                card_cc1.setVisibility(View.GONE);
+
+                                click_213.setClickable(true);
+                                click_214.setClickable(true);
+                                click_215.setClickable(true);
+                                click_dowm.setClickable(true);
+                                click_up.setClickable(true);
+                                click_216.setClickable(true);
+                                click_207.setClickable(true);
+                                click_201.setClickable(true);
+                                click_cc3.setClickable(true);
+                                click_cc2.setClickable(true);
+                                click_cc1.setClickable(true);
+                            }
+                        });
+                    }
+                });
+            }
+        });
 
     }
 
