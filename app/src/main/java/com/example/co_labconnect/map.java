@@ -2,10 +2,12 @@ package com.example.co_labconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -17,12 +19,16 @@ import android.widget.Toast;
 public class map extends AppCompatActivity {
 
     RelativeLayout click_213,click_214,click_215,click_dowm,click_up,click_216,click_207,click_201,click_203,
-            click_cc3,click_cc2,click_cc1;
-    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203,card_cc3,card_cc2,card_cc1;
+            click_cc3,click_cc2,click_cc1,hall_click;
+    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203,card_cc3,card_cc2,card_cc1,navigation_pannel;
     CardView box;
-    AppCompatButton navigation,image;
+    AppCompatButton navigation,image,start_journey_button;
     AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,
             card_207_closing,card_201_closing,card_203_closing,card_closing_cc3,card_closing_cc2,card_cc1_closeing;
+    ImageView navigation_back_button,card_back_button;
+    
+    AppCompatEditText current_location,destination_location;
+
 
 
 
@@ -76,9 +82,22 @@ public class map extends AppCompatActivity {
         click_cc1 = findViewById(R.id.click_cc1);
         card_cc1 = findViewById(R.id.card_cc1);
         card_cc1_closeing = findViewById(R.id.card_cc1_closeing);
+        
+        hall_click = findViewById(R.id.hall_click);
 
         navigation = findViewById(R.id.navigation_click);
+        navigation_pannel = findViewById(R.id.navigation_pannel);
+
+        navigation_back_button = findViewById(R.id.navigation_back_button);
+
+        card_back_button = findViewById(R.id.card_back_button);
+
         image = findViewById(R.id.image_click);
+
+        start_journey_button = findViewById(R.id.start_journey_button);
+
+        current_location = findViewById(R.id.current_location);
+        destination_location = findViewById(R.id.destination_location);
 
         box = findViewById(R.id.box_card);
 
@@ -100,6 +119,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -131,6 +151,12 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
+
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -156,6 +182,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -188,6 +215,12 @@ public class map extends AppCompatActivity {
                                 click_cc3.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
+
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -213,6 +246,8 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
+
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -244,7 +279,12 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
 
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -270,6 +310,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -301,6 +342,12 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
+
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
 
                             }
                         });
@@ -341,6 +388,8 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
+
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -372,6 +421,12 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
+
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -397,6 +452,8 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
+
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -429,7 +486,12 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
 
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -457,6 +519,8 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
+
 
 
                 image.setOnClickListener(new View.OnClickListener() {
@@ -490,7 +554,12 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
 
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -517,6 +586,8 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
+
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -549,6 +620,12 @@ public class map extends AppCompatActivity {
                                 click_cc3.setClickable(true);
                                 click_cc2.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
+
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -575,6 +652,8 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
                 click_cc1.setClickable(false);
+                hall_click.setClickable(false);
+
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -607,6 +686,12 @@ public class map extends AppCompatActivity {
                                 click_cc3.setClickable(true);
                                 click_cc2.setClickable(true);
                                 click_cc1.setClickable(true);
+                                hall_click.setClickable(true);
+
+                                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                                box.setVisibility(View.VISIBLE);
+                                box.setAnimation(animSlide);
+                                box.startAnimation(animSlide);
                             }
                         });
                     }
@@ -614,6 +699,89 @@ public class map extends AppCompatActivity {
             }
         });
 
+        //-=========================================hall click=================================================//
+        
+        hall_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(map.this, "Working", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //-=========================================navigation=================================================//
+
+        navigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                navigation_pannel.setVisibility(View.VISIBLE);
+                navigation_pannel.setAnimation(animSlide);
+                navigation_pannel.startAnimation(animSlide);
+
+                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                box.setVisibility(View.GONE);
+                box.setAnimation(animSlideout);
+                box.startAnimation(animSlideout);
+            }
+        });
+
+        navigation_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                navigation_pannel.setVisibility(View.GONE);
+                navigation_pannel.setAnimation(animSlideout);
+                navigation_pannel.startAnimation(animSlideout);
+
+                Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                box.setVisibility(View.VISIBLE);
+                box.setAnimation(animSlide);
+                box.startAnimation(animSlide);
+            }
+        });
+
+        card_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                box.setVisibility(View.GONE);
+                box.setAnimation(animSlideout);
+                box.startAnimation(animSlideout);
+
+                click_213.setClickable(true);
+                click_214.setClickable(true);
+                click_215.setClickable(true);
+                click_dowm.setClickable(true);
+                click_up.setClickable(true);
+                click_216.setClickable(true);
+                click_207.setClickable(true);
+                click_201.setClickable(true);
+                click_cc3.setClickable(true);
+                click_cc2.setClickable(true);
+                click_cc1.setClickable(true);
+                hall_click.setClickable(true);
+
+            }
+        });
+        //-=========================================start navigation button=================================================//
+        start_journey_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                String user_current_location,user_destination_location;
+               user_current_location = current_location.getText().toString();
+                user_destination_location = destination_location.getText().toString();
+                
+                if (TextUtils.isEmpty(user_current_location)){
+                    Toast.makeText(map.this, "Enter Current Location", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(user_destination_location)) {
+                    Toast.makeText(map.this, "Enter  Destination", Toast.LENGTH_SHORT).show();
+                }else if(TextUtils.equals(user_current_location,user_destination_location)){
+                    Toast.makeText(map.this, "AREY BHIYA!! JO KA DEKH LIYO :o ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

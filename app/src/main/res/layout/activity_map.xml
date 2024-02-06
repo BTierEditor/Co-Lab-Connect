@@ -733,81 +733,18 @@
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
-        android:id="@+id/click_cc2"
-        android:layout_width="85dp"
-        android:layout_height="123dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="304dp"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_cc2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="40dp"
-        app:cardCornerRadius="30dp"
-
-        android:visibility="gone"
-
-        android:layout_marginHorizontal="10dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Labratory - 208[CC2]"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="55dp"
-                android:src="@drawable/cabin_214" />
-
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/card_cc2_closeing"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/previous_white"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/map_custom_button"/>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="vertical"
-                android:layout_marginTop="580dp">
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="CC3 Lab"
-                    android:textSize="20dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="Best internet connectivity and"/>
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="null"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        android:id="@+id/hall_click"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/box_card"
         android:layout_width="180dp"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
+        android:rotation="90"
 
         android:visibility="gone"
 
@@ -818,6 +755,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:background="@color/light_gray"
             android:layout_gravity="center">
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/navigation_click"
@@ -835,6 +773,94 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:drawableLeft="@drawable/image_white"/>
+            <ImageView
+                android:id="@+id/card_back_button"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:src="@drawable/back_button_logo"
+                android:rotation="270"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/navigation_pannel"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="40dp"
+
+        android:visibility="gone"
+
+        app:cardCornerRadius="30dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/Orange">
+                <ImageView
+                    android:id="@+id/navigation_back_button"
+                    android:layout_width="100px"
+                    android:layout_marginVertical="10px"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/back_button_logo"
+                    android:layout_marginStart="30px"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Navigation"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="60px"
+                    android:layout_marginVertical="20px"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="130px">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/current_location"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_marginTop="35px"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
+                android:layout_height="120px"
+                android:layout_marginHorizontal="20px"
+                android:hint="Enter Your Current Location"
+                android:background="@drawable/custom_edittext"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:textAlignment="center"
+
+                android:src="@drawable/down_arrow_white"/>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/destination_location"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:layout_height="120px"
+                android:layout_marginHorizontal="20px"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
+                android:hint="Enter Your Destination"
+                android:background="@drawable/custom_edittext"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/start_journey_button"
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:textColor="@color/black"
+                android:text="Start journey"
+                android:layout_marginHorizontal="45px"
+                android:background="@drawable/custom_button_2"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </RelativeLayout>
