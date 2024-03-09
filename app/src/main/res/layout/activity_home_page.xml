@@ -7,17 +7,28 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
     tools:context=".HomePage">
-
   <androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
-      app:title="Home"
+      app:title="Hello,"
       app:titleMarginStart="30dp"
       app:titleTextColor="@color/white"
       android:layout_height="50dp"
       android:layout_marginTop="3dp"
       android:elevation="15dp"
       android:background="@drawable/toolbar_shape">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:id="@+id/User_name"
+        android:text="Loading"
+        />
+
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/map_button"
         android:layout_width="40dp"

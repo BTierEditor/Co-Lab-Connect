@@ -7,7 +7,6 @@ import androidx.appcompat.widget.AppCompatImageButton;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,8 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -107,7 +104,8 @@ public class user_profile extends AppCompatActivity {
                 settingbtn.setAnimation(animSlideout);
                 settingbtn.startAnimation(animSlideout);
                 settingbtn.setVisibility(View.INVISIBLE);
-
+                Intent intent = new Intent(getApplicationContext(),Setting.class);
+                startActivity(intent);
                 homebtn.setVisibility(View.VISIBLE);
                 chatbtn.setVisibility(View.VISIBLE);
                 profilebtn.setVisibility(View.VISIBLE);
@@ -141,7 +139,7 @@ public class user_profile extends AppCompatActivity {
                 chatbtn.startAnimation(animSlideout);
                 chatbtn.setVisibility(View.INVISIBLE);
 
-                Intent intent = new Intent(getApplicationContext(),Chat.class);
+                Intent intent = new Intent(getApplicationContext(), ChatHall.class);
                 startActivity(intent);
 
                 homebtn.setVisibility(View.VISIBLE);

@@ -1,5 +1,7 @@
 package com.example.co_labconnect;
 
+import static com.example.co_labconnect.Login.sharedPreferences;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +36,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.SimpleTimeZone;
 
 public class HomePage extends AppCompatActivity {
 
     Toolbar toolbarobj;
+    public static String USERNAME;
     FloatingActionButton addbtn;
     int i=0;
     RelativeLayout post;
@@ -47,7 +49,7 @@ public class HomePage extends AppCompatActivity {
     CoordinatorLayout navigationlay;
     Button post_button,test_profile;
     TextView replace1;
-    TextView tweetuseridshow,tweetuseremailshow;
+    TextView tweetuseridshow,tweetuseremailshow,textView;
     CardView tweet1;
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn,mapbtn;
 
@@ -63,12 +65,16 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        USERNAME =  sharedPreferences.getString("Name", "");
+
 
         mAuth = FirebaseAuth.getInstance();
         currentuserid = mAuth.getCurrentUser().getUid();
         userref = FirebaseDatabase.getInstance().getReference().child("Users");
         postref = FirebaseDatabase.getInstance().getReference().child("Posts").child(currentuserid);
         user = mAuth.getCurrentUser();
+
+
 
         
         mapbtn = findViewById(R.id.map_button);
@@ -88,6 +94,8 @@ public class HomePage extends AppCompatActivity {
         replace1=findViewById(R.id.replace1);
         tweet1=findViewById(R.id.tweetcard);
         test_profile=findViewById(R.id.test_profile);
+        textView = findViewById(R.id.User_name);
+
 
         tweetuseremailshow.setText(user.getEmail());
 
@@ -97,6 +105,7 @@ public class HomePage extends AppCompatActivity {
                 if(datasnapshot.exists()){
                     namefromdatabase = datasnapshot.child("Name").getValue().toString();
                     tweetuseridshow.setText(namefromdatabase);
+                    textView.setText(namefromdatabase);
                 }
             }
 
@@ -115,6 +124,9 @@ public class HomePage extends AppCompatActivity {
                 settingbtn.setAnimation(animSlideout);
                 settingbtn.startAnimation(animSlideout);
                 settingbtn.setVisibility(View.INVISIBLE);
+
+                Intent intent = new Intent(getApplicationContext(),Setting.class);
+                startActivity(intent);
 
 
                 homebtn.setVisibility(View.VISIBLE);
@@ -140,69 +152,52 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        chatbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        chatbtn.setOnClickListener(view -> {
 
-                    Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
-                    chatbtn.setAnimation(animSlideout);
-                    chatbtn.startAnimation(animSlideout);
-                    chatbtn.setVisibility(View.INVISIBLE);
+                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
+                chatbtn.setAnimation(animSlideout);
+                chatbtn.startAnimation(animSlideout);
+                chatbtn.setVisibility(View.VISIBLE);
+            Intent intent = new Intent(getApplicationContext(), ChatHall.class);
+            startActivity(intent);
 
-                Toast.makeText(HomePage.this, "Under Testing", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),Chat.class);
-                startActivity(intent);
+            homebtn.setVisibility(View.INVISIBLE);
+            profilebtn.setVisibility(View.VISIBLE);
+            settingbtn.setVisibility(View.VISIBLE);
 
-                    homebtn.setVisibility(View.VISIBLE);
-                profilebtn.setVisibility(View.VISIBLE);
-                settingbtn.setVisibility(View.VISIBLE);
-
-            }
         });
         homebtn.setVisibility(View.INVISIBLE);
-        homebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
-                    homebtn.setAnimation(animSlideout);
-                    homebtn.startAnimation(animSlideout);
-                    homebtn.setVisibility(View.INVISIBLE);
+        homebtn.setOnClickListener(view -> {
+                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
+                homebtn.setAnimation(animSlideout);
+                homebtn.startAnimation(animSlideout);
+                homebtn.setVisibility(View.INVISIBLE);
 
-                Intent intent = new Intent(getApplicationContext(),HomePage.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(),HomePage.class);
+            startActivity(intent);
 
 
 
-                    chatbtn.setVisibility(View.VISIBLE);
-                    profilebtn.setVisibility(View.VISIBLE);
-                     settingbtn.setVisibility(View.VISIBLE);
-            }
+                chatbtn.setVisibility(View.VISIBLE);
+                profilebtn.setVisibility(View.VISIBLE);
+                 settingbtn.setVisibility(View.VISIBLE);
         });
 
         
-        mapbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomePage.this, "Welcome to JMap Beta "+namefromdatabase, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), map.class);
-                startActivity(intent);
-            }
+        mapbtn.setOnClickListener(view -> {
+            Toast.makeText(HomePage.this, "Welcome to JMap Beta "+namefromdatabase, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), map.class);
+            startActivity(intent);
         });
         
-        test_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Profile.class);
-                startActivity(intent);
-            }
+        test_profile.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(),Profile.class);
+            startActivity(intent);
         });
 
-        thoughtsin.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                navigationlay.setVisibility(View.INVISIBLE);
-                return false;
-            }
+        thoughtsin.setOnTouchListener((view, motionEvent) -> {
+            navigationlay.setVisibility(View.INVISIBLE);
+            return false;
         });
 
         post_button.setOnClickListener(new View.OnClickListener() {

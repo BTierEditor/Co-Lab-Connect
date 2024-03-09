@@ -41,6 +41,7 @@ public class Profile extends AppCompatActivity {
     StorageReference UserProfileImageRef;
     Uri imageuri;
     String name,age,enroll,Class,number;
+    DatabaseReference name_for_chat;
 
 
     final static int galley_picker = 1;
@@ -54,6 +55,8 @@ public class Profile extends AppCompatActivity {
         current_user = mAuth.getCurrentUser().getUid();
 
         userref = FirebaseDatabase.getInstance().getReference().child("Users").child(current_user);
+        name_for_chat = FirebaseDatabase.getInstance().getReference().child("Name_for_chat");
+
 
         UserProfileImageRef = FirebaseStorage.getInstance().getReference().child("profile images");
 
@@ -111,6 +114,21 @@ public class Profile extends AppCompatActivity {
                     usermap.put("Enrollment",enroll);
                     usermap.put("Class",Class);
                     usermap.put("Number",number);
+
+                    HashMap chat_names = new HashMap();
+                    chat_names.put("Name",name);
+
+                    name_for_chat.updateChildren(chat_names).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isComplete()){
+                                Toast.makeText(Profile.this, "Complete", Toast.LENGTH_SHORT).show();
+                            }else{
+                                String error = task.getException().getMessage();
+                                Toast.makeText(Profile.this, "An Error Occured:"+error, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                     userref.updateChildren(usermap).addOnCompleteListener(new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Setting">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        app:title="Settings"
+        app:titleMarginStart="30dp"
+        app:titleTextColor="@color/white"
+        android:layout_height="50dp"
+        android:layout_marginTop="3dp"
+        android:elevation="15dp"
+        android:background="@drawable/toolbar_shape">
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting Activity"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textAlignment="center"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/navigationlayout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigationbar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bar_shape"
+            android:layout_alignParentBottom="true"
+            android:elevation="5dp"
+            app:itemIconSize="25dp"
+            app:itemIconTint="@drawable/item_selected"
+            app:itemRippleColor="@android:color/transparent"
+            app:labelVisibilityMode="unlabeled"
+            app:itemHorizontalTranslationEnabled="true">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/navigation_home"
+                android:layout_width="63dp"
+                android:layout_height="45dp"
+                android:background="@drawable/navigation_home_btn_background"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/home_black"
+                android:clickable="true"
+                android:layout_marginStart="10dp"
+                app:elevation="10dp" />
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/navigation_chat"
+                android:layout_width="63dp"
+                android:layout_height="45dp"
+                android:background="@drawable/navigation_button"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/chat_black"
+                android:layout_marginStart="79dp"
+                app:elevation="10dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/navigation_profile"
+                android:layout_width="63dp"
+                android:layout_height="45dp"
+                android:background="@drawable/navigation_button"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/profile_black"
+                android:layout_marginStart="200dp"
+                app:elevation="10dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/navigation_setting"
+                android:layout_width="63dp"
+                android:visibility="gone"
+                android:layout_height="45dp"
+                android:background="@drawable/navigation_home_btn_2"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/setting_black"
+                android:layout_marginStart="268dp"
+                app:elevation="10dp" />
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</RelativeLayout>
