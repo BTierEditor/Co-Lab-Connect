@@ -3,4 +3,4 @@
 : Do not commite anything without any backup. <br>
 : Do not share source/code. <br>
 : Connected with Firebase Database. <br>
-: Notify before any chances. <br>
+: Notify before any changes. <br>
