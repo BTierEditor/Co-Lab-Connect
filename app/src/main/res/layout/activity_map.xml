@@ -7,6 +7,13 @@
     android:background="@drawable/test_map"
     tools:context=".map">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2nd floor blueprint"
+        android:gravity="center"
+        android:layout_marginTop="120dp"
+        android:textColor="@color/white"/>
 
     <RelativeLayout
         android:id="@+id/click_213"

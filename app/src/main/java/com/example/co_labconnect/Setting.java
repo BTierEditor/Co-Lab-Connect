@@ -8,10 +8,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Setting extends AppCompatActivity {
 
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn;
+    Button logout;
+    FirebaseUser user;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +30,28 @@ public class Setting extends AppCompatActivity {
         profilebtn = findViewById(R.id.navigation_profile);
         chatbtn = findViewById(R.id.navigation_chat);
         homebtn = findViewById(R.id.navigation_home);
+        logout=findViewById(R.id.logout_button);
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+
+
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "See you soon!", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
                 Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
                 profilebtn.setAnimation(animSlideout);

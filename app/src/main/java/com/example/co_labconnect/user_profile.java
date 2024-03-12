@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class user_profile extends AppCompatActivity {
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn;
-    Button logout;
 
     TextView emailshow,nameshow,ageshow,enrollshow,classshow,numbershow;
     FirebaseUser user;
@@ -56,7 +55,6 @@ public class user_profile extends AppCompatActivity {
         profilebtn = findViewById(R.id.navigation_profile);
         chatbtn = findViewById(R.id.navigation_chat);
         homebtn = findViewById(R.id.navigation_home);
-        logout=findViewById(R.id.logout_button);
 
         userref.child(currentuserid).addValueEventListener(new ValueEventListener() {
             @Override
@@ -86,16 +84,6 @@ public class user_profile extends AppCompatActivity {
             }
         });
         emailshow.setText(user.getEmail());
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(user_profile.this, "See you soon!", Toast.LENGTH_SHORT).show();
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(),Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         settingbtn.setOnClickListener(new View.OnClickListener() {
             @Override

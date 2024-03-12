@@ -236,12 +236,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:lottie_rawRes="@raw/button"
-                android:visibility="visible"
-                app:lottie_loop="true"/>
+<com.airbnb.lottie.LottieAnimationView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:lottie_rawRes="@raw/button"
+    android:visibility="visible"
+    app:lottie_loop="true"/>
 
 
         </LinearLayout>
