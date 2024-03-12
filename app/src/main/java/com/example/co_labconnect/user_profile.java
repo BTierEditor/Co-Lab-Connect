@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class user_profile extends AppCompatActivity {
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn;
+    Button edit_profile_button;
 
     TextView emailshow,nameshow,ageshow,enrollshow,classshow,numbershow;
     FirebaseUser user;
@@ -55,6 +56,13 @@ public class user_profile extends AppCompatActivity {
         profilebtn = findViewById(R.id.navigation_profile);
         chatbtn = findViewById(R.id.navigation_chat);
         homebtn = findViewById(R.id.navigation_home);
+        edit_profile_button = findViewById(R.id.edit_profile_button);
+
+        edit_profile_button.setOnClickListener(view -> {
+           Intent intent = new Intent(getApplicationContext(), Profile.class);
+           startActivity(intent);
+           finish();
+        });
 
         userref.child(currentuserid).addValueEventListener(new ValueEventListener() {
             @Override

@@ -47,7 +47,7 @@ public class HomePage extends AppCompatActivity {
     ImageView post_back_btn;
     EditText thoughtsin;
     CoordinatorLayout navigationlay;
-    Button post_button,test_profile;
+    Button post_button;
     TextView replace1;
     TextView tweetuseridshow,tweetuseremailshow,textView;
     CardView tweet1;
@@ -93,7 +93,6 @@ public class HomePage extends AppCompatActivity {
         post_button=findViewById(R.id.thoughtspostbtn);
         replace1=findViewById(R.id.replace1);
         tweet1=findViewById(R.id.tweetcard);
-        test_profile=findViewById(R.id.test_profile);
         textView = findViewById(R.id.User_name);
 
 
@@ -187,11 +186,6 @@ public class HomePage extends AppCompatActivity {
         mapbtn.setOnClickListener(view -> {
             Toast.makeText(HomePage.this, "Welcome to JMap Beta "+namefromdatabase, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), map.class);
-            startActivity(intent);
-        });
-        
-        test_profile.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(),Profile.class);
             startActivity(intent);
         });
 

@@ -27,7 +27,7 @@
             android:orientation="vertical"
             android:paddingVertical="10dp"
             android:layout_height="match_parent">
-            <androidx.appcompat.widget.AppCompatImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:src="@drawable/me"/>
@@ -236,13 +236,14 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-<com.airbnb.lottie.LottieAnimationView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:lottie_rawRes="@raw/button"
-    android:visibility="visible"
-    app:lottie_loop="true"/>
-
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:background="@color/gray"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Edit Profile"/>
 
         </LinearLayout>
     </ScrollView>

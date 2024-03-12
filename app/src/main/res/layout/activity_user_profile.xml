@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_mountains"
     tools:context=".user_profile">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,7 +26,7 @@
             android:orientation="vertical"
             android:paddingVertical="10dp"
             android:layout_height="match_parent">
-            <androidx.appcompat.widget.AppCompatImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:src="@drawable/me"/>
@@ -67,6 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
+                        android:textColor="@color/white"
                         android:layout_marginLeft="10dp"
                         android:text=""
                         android:textSize="15dp"/>
@@ -77,6 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
@@ -99,6 +100,8 @@
                         android:id="@+id/name_showcase"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:textColor="@color/white"
+
                         android:gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:textSize="18dp"/>
@@ -109,6 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Age"
+                android:layout_marginTop="10dp"
+
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
@@ -132,6 +137,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
+                        android:textColor="@color/white"
+
                         android:layout_marginLeft="10dp"
                         android:textSize="18dp"/>
                 </LinearLayout>
@@ -142,6 +149,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Enrollment Number"
+                android:layout_marginTop="10dp"
+
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
@@ -164,6 +173,8 @@
                         android:id="@+id/enroll_showcase"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:textColor="@color/white"
+
                         android:gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:textSize="18dp"/>
@@ -175,6 +186,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Class"
+                android:layout_marginTop="10dp"
+
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
@@ -198,6 +211,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
+                        android:textColor="@color/white"
+
                         android:layout_marginLeft="10dp"
                         android:textSize="18dp"/>
                 </LinearLayout>
@@ -208,6 +223,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mobile Number"
+                android:layout_marginTop="10dp"
+
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
@@ -232,17 +249,21 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:layout_marginLeft="10dp"
+                        android:textColor="@color/white"
                         android:textSize="18dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <com.airbnb.lottie.LottieAnimationView
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/edit_profile_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:lottie_rawRes="@raw/button"
-                android:visibility="visible"
-                app:lottie_loop="true"/>
-
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/toolbar_shape"
+                android:backgroundTint="#51829B"
+                android:layout_marginTop="10dp"
+                android:text="Edit Profile"/>
 
         </LinearLayout>
     </ScrollView>

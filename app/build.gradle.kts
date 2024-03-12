@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.co_labconnect"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.co_labconnect"
@@ -43,6 +43,7 @@ dependencies {
     implementation("com.google.firebase:firebase-storage-ktx:20.2.1")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     implementation("com.google.firebase:firebase-firestore:24.10.2")
     implementation ("com.google.firebase:firebase-bom:32.7.2")
