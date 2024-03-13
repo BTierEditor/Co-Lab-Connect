@@ -53,7 +53,6 @@
           app:cardBackgroundColor="#FFFFFF"
           app:cardCornerRadius="25dp"
           app:cardElevation="10dp"
-
           android:visibility="gone"
 
           android:layout_marginTop="60dp"
@@ -104,6 +103,25 @@
             android:textSize="20sp"/>
       </androidx.cardview.widget.CardView>
 
+
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:id="@+id/Tweet_recycler"
+          app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            android:layout_height="wrap_content"
+          android:layout_marginTop="50dp"
+        />
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+  android:id="@+id/txt"
+    android:text="hello "
+    android:textColor="@color/black"
+    android:layout_marginTop="200dp"
+  />
 
     </LinearLayout>
 

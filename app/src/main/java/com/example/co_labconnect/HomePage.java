@@ -1,5 +1,7 @@
 package com.example.co_labconnect;
 
+import static android.app.ProgressDialog.show;
+import static androidx.recyclerview.widget.LinearLayoutManager.*;
 import static com.example.co_labconnect.Login.sharedPreferences;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,8 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +28,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.co_labconnect.HomePageRecycler.Tweet_Recycler_Adapter;
+import com.example.co_labconnect.HomePageRecycler.Tweet_Recycler_ModelClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +40,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -46,6 +53,9 @@ public class HomePage extends AppCompatActivity {
     RelativeLayout post;
     ImageView post_back_btn;
     EditText thoughtsin;
+    Tweet_Recycler_Adapter adapter;
+
+    TextView textView1;
     CoordinatorLayout navigationlay;
     Button post_button;
     TextView replace1;
@@ -60,13 +70,18 @@ public class HomePage extends AppCompatActivity {
     String savecurrenttime,savecurrentdate,postrandomname;
     String namefromdatabase;
 
+    RecyclerView recyclerView;
+    ArrayList<Tweet_Recycler_ModelClass>  arrayList= new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         USERNAME =  sharedPreferences.getString("Name", "");
-
+        recyclerView=findViewById(R.id.Tweet_recycler);
+        adapter = new Tweet_Recycler_Adapter(arrayList);
+        recyclerView.setAdapter(adapter);
 
         mAuth = FirebaseAuth.getInstance();
         currentuserid = mAuth.getCurrentUser().getUid();
@@ -74,9 +89,8 @@ public class HomePage extends AppCompatActivity {
         postref = FirebaseDatabase.getInstance().getReference().child("Posts").child(currentuserid);
         user = mAuth.getCurrentUser();
 
+        getData();
 
-
-        
         mapbtn = findViewById(R.id.map_button);
         tweetuseremailshow = findViewById(R.id.tweet_email_showcase);
         tweetuseridshow = findViewById(R.id.tweet_name_showcase);
@@ -94,9 +108,10 @@ public class HomePage extends AppCompatActivity {
         replace1=findViewById(R.id.replace1);
         tweet1=findViewById(R.id.tweetcard);
         textView = findViewById(R.id.User_name);
+        textView1 = findViewById(R.id.txt);
 
 
-        tweetuseremailshow.setText(user.getEmail());
+//        tweetuseremailshow.setText(user.getEmail());
 
         userref.child(currentuserid).addValueEventListener(new ValueEventListener() {
             @Override
@@ -214,7 +229,7 @@ public class HomePage extends AppCompatActivity {
                     SimpleDateFormat currenttime = new SimpleDateFormat("HH:MM:ss");
                     savecurrenttime = currenttime.format(CalForDate.getTime());
 
-                    postrandomname = savecurrentdate + savecurrenttime;
+                    postrandomname = savecurrentdate + " "+savecurrenttime;
 
                     String email = user.getEmail();
                     userref.child(currentuserid).addValueEventListener(new ValueEventListener() {
@@ -223,6 +238,9 @@ public class HomePage extends AppCompatActivity {
                             HashMap postmap = new HashMap();
                             postmap.put("Thoughts",thought);
                             postmap.put("email",email);
+                            postmap.put("name",namefromdatabase);
+                            postmap.put("DateAndTime",postrandomname);
+
                             postref.child(postrandomname).updateChildren(postmap);
                         }
 
@@ -304,5 +322,36 @@ public class HomePage extends AppCompatActivity {
             }
         });
         alert.show();
+    }
+
+    void getData(){
+
+
+
+        DatabaseReference  databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                arrayList.clear();
+                for(DataSnapshot snapshot1: snapshot.getChildren()){
+
+                for (DataSnapshot snapshot2: snapshot1.getChildren())
+                {
+                    textView1.setText(snapshot2.child("Thoughts").getValue(String.class));
+
+
+                    Tweet_Recycler_ModelClass modelClass = new Tweet_Recycler_ModelClass(snapshot2.child("DateAndTime").getValue(String.class),snapshot2.child("name").getValue(String.class),snapshot2.child("Thoughts").getValue(String.class));
+                    arrayList.add(modelClass);
+                }
+            }
+            adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
