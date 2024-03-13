@@ -55,12 +55,10 @@ public class HomePage extends AppCompatActivity {
     EditText thoughtsin;
     Tweet_Recycler_Adapter adapter;
 
-    TextView textView1;
     CoordinatorLayout navigationlay;
     Button post_button;
     TextView replace1;
     TextView tweetuseridshow,tweetuseremailshow,textView;
-    CardView tweet1;
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn,mapbtn;
 
     FirebaseUser user;
@@ -106,9 +104,7 @@ public class HomePage extends AppCompatActivity {
         navigationlay=findViewById(R.id.navigationlayout);
         post_button=findViewById(R.id.thoughtspostbtn);
         replace1=findViewById(R.id.replace1);
-        tweet1=findViewById(R.id.tweetcard);
         textView = findViewById(R.id.User_name);
-        textView1 = findViewById(R.id.txt);
 
 
 //        tweetuseremailshow.setText(user.getEmail());
@@ -252,10 +248,7 @@ public class HomePage extends AppCompatActivity {
 
                     replace1.setText(thoughtsin.getText().toString());
                     Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
-                    tweet1.setVisibility(View.VISIBLE);
                     thoughtsin.setText("");
-                    tweet1.setAnimation(animSlide);
-                    tweet1.startAnimation(animSlide);
                     Toast.makeText(HomePage.this, "Tweeted successfully", Toast.LENGTH_SHORT).show();
                 }
 
@@ -338,7 +331,6 @@ public class HomePage extends AppCompatActivity {
 
                 for (DataSnapshot snapshot2: snapshot1.getChildren())
                 {
-                    textView1.setText(snapshot2.child("Thoughts").getValue(String.class));
 
 
                     Tweet_Recycler_ModelClass modelClass = new Tweet_Recycler_ModelClass(snapshot2.child("DateAndTime").getValue(String.class),snapshot2.child("name").getValue(String.class),snapshot2.child("Thoughts").getValue(String.class));
