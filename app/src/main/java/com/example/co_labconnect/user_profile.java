@@ -2,6 +2,7 @@
 package com.example.co_labconnect;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
@@ -165,6 +166,11 @@ public class user_profile extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        AlertDialog.Builder alertout = new AlertDialog.Builder(user_profile.this);
+        alertout.setTitle("Exit?");
+        alertout.setMessage("Do you want to Exit Co-Lab Connect?");
+        alertout.setPositiveButton("yes", (dialog, which) -> { finishAffinity(); });
+        alertout.setNegativeButton("No", (dialog, which) -> { dialog.dismiss(); });
+        alertout.show();
     }
 }

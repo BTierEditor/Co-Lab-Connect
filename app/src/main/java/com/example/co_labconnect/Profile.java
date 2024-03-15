@@ -151,6 +151,13 @@ public class Profile extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(),user_profile.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==galley_picker && data!=null && resultCode==RESULT_OK){

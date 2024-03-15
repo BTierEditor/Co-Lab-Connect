@@ -40,12 +40,14 @@
             android:id="@+id/User_name"
             android:text="Name Loading" />
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
         android:layout_above="@+id/linear"
         android:orientation="vertical"/>
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"

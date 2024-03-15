@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/warm"
     tools:context=".user_profile">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -26,19 +27,11 @@
             android:orientation="vertical"
             android:paddingVertical="10dp"
             android:layout_height="match_parent">
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/me"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Edit Proile Picture"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:textColor="@color/white"/>
-
+                app:tint="@color/white"
+                android:src="@drawable/account_logo"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,29 +40,34 @@
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginHorizontal="10dp"
                 app:cardCornerRadius="15dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@color/gray"
+                    android:background="@color/sky_blue"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="30dp"
+                        android:layout_width="50dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
                         android:src="@drawable/email_white"/>
-                    <TextView
-                        android:id="@+id/wmail_showcase"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/white"
-                        android:layout_marginLeft="10dp"
-                        android:text=""
-                        android:textSize="15dp"/>
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/wmail_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="2dp"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:text="Email Loading...."
+                            android:textSize="15dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -82,29 +80,35 @@
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginHorizontal="10dp"
                 app:cardCornerRadius="15dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@color/gray"
+                    android:background="@color/sky_blue"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="30dp"
+                        android:layout_width="50dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
                         android:src="@drawable/account_white"/>
-                    <TextView
-                        android:id="@+id/name_showcase"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textColor="@color/white"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/name_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="2dp"
 
-                        android:gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"/>
+                            android:textColor="@color/black"
+                            android:text="Name Loading...."
+                            android:textSize="15dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -118,29 +122,34 @@
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginHorizontal="10dp"
                 app:cardCornerRadius="15dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@color/gray"
+                    android:background="@color/sky_blue"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="30dp"
+                        android:layout_width="50dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
                         android:src="@drawable/age_white"/>
-                    <TextView
-                        android:id="@+id/age_showcase"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/white"
-
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"/>
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/age_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:textColor="@color/black"
+                            android:text="Age Loading...."
+                            android:textSize="15dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -155,29 +164,34 @@
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginHorizontal="10dp"
                 app:cardCornerRadius="15dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@color/gray"
+                    android:background="@color/sky_blue"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="30dp"
+                        android:layout_width="50dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
                         android:src="@drawable/enrollment_white"/>
-                    <TextView
-                        android:id="@+id/enroll_showcase"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textColor="@color/white"
-
-                        android:gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"/>
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/enroll_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:textColor="@color/black"
+                            android:text="Enrollment Loading...."
+                            android:textSize="15dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -192,31 +206,37 @@
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginHorizontal="10dp"
                 app:cardCornerRadius="15dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@color/gray"
+                    android:background="@color/sky_blue"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="30dp"
+                        android:layout_width="50dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
                         android:src="@drawable/class_white"/>
-                    <TextView
-                        android:id="@+id/class_showcase"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/white"
-
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"/>
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/class_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:textColor="@color/black"
+                            android:text="Class Loading...."
+                            android:textSize="15dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
 
 
             <TextView
@@ -229,30 +249,78 @@
                 android:layout_marginHorizontal="20dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginHorizontal="10dp"
                 app:cardCornerRadius="15dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@color/gray"
+                    android:background="@color/sky_blue"
                     android:orientation="horizontal">
+
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:src="@drawable/number_white"/>
-                    <TextView
-                        android:id="@+id/number_showcase"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/number_white" />
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/white"
-                        android:textSize="18dp"/>
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/number_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:textColor="@color/black"
+                            android:text="Number Loading...."
+                            android:textSize="15dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="20dp"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="10dp"
+                app:cardCornerRadius="15dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@color/sky_blue"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/about_white"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/about_showcase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:textColor="@color/black"
+                            android:text="Comming Soon!"
+                            android:textSize="15dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/edit_profile_button"
@@ -261,8 +329,9 @@
                 android:textColor="@color/white"
                 android:layout_marginHorizontal="40dp"
                 android:background="@drawable/toolbar_shape"
-                android:backgroundTint="#51829B"
                 android:layout_marginTop="10dp"
+                android:backgroundTint="@color/sky_blue"
+                android:layout_marginBottom="50dp"
                 android:text="Edit Profile"/>
 
         </LinearLayout>
@@ -273,25 +342,17 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:visibility="visible"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="10dp">
-
+        android:layout_alignParentBottom="true">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigationbar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:paddingHorizontal="5dp"
+            android:layout_gravity="center"
             android:layout_height="55dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/bar_shape"
             android:layout_alignParentBottom="true"
-            app:menu="@menu/menu"
-            android:elevation="5dp"
-            app:itemIconSize="25dp"
-            app:itemIconTint="@drawable/item_selected"
-            app:itemRippleColor="@android:color/transparent"
-            app:labelVisibilityMode="unlabeled"
-            app:itemHorizontalTranslationEnabled="true">
+            android:elevation="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -300,42 +361,43 @@
                 android:orientation="horizontal">
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/navigation_home"
-                    android:layout_width="83dp"
+                    android:layout_width="70dp"
                     android:layout_height="45dp"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginHorizontal="3dp"
                     android:background="@drawable/navigation_button"
-                    android:src="@drawable/home_black"
-                    android:clickable="true"
-                    android:tint="@color/white"
                     android:backgroundTint="@color/gray"
+                    app:tint="@color/white"
+                    android:src="@drawable/home_black"
+                    android:clickable="false"
                     app:elevation="10dp" />
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/navigation_chat"
-                    android:layout_width="83dp"
+                    android:layout_width="70dp"
                     android:layout_height="45dp"
                     android:background="@drawable/navigation_button"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginHorizontal="3dp"
                     android:src="@drawable/chat_black"
-                    android:visibility="visible"
                     android:tint="@color/white"
                     android:backgroundTint="@color/gray"
                     app:elevation="10dp" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/navigation_profile"
-                    android:layout_width="83dp"
+                    android:layout_width="70dp"
                     android:layout_height="45dp"
                     android:background="@drawable/navigation_button"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginHorizontal="3dp"
                     android:src="@drawable/profile_black"
+                    android:tint="@color/black"
+                    android:backgroundTint="@color/white"
                     app:elevation="10dp" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/navigation_setting"
-                    android:layout_width="83dp"
+                    android:layout_width="70dp"
                     android:layout_height="45dp"
                     android:background="@drawable/navigation_button"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginHorizontal="3dp"
                     android:src="@drawable/setting_black"
                     android:tint="@color/white"
                     android:backgroundTint="@color/gray"

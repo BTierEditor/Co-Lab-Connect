@@ -175,20 +175,7 @@ public class HomePage extends AppCompatActivity {
             settingbtn.setVisibility(View.VISIBLE);
 
         });
-        homebtn.setOnClickListener(view -> {
-                Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
-                homebtn.setAnimation(animSlideout);
-                homebtn.startAnimation(animSlideout);
-
-            Intent intent = new Intent(getApplicationContext(),HomePage.class);
-            startActivity(intent);
-
-
-
-                chatbtn.setVisibility(View.VISIBLE);
-                profilebtn.setVisibility(View.VISIBLE);
-                 settingbtn.setVisibility(View.VISIBLE);
-        });
+        homebtn.setClickable(false);
 
         
         mapbtn.setOnClickListener(view -> {
@@ -298,18 +285,8 @@ public class HomePage extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(HomePage.this);
         alert.setTitle("Exit?");
         alert.setMessage("Do you want to exit Co-Lab Connect?");
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                finishAffinity();
-            }
-        });
-        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        alert.setPositiveButton("Yes", (dialogInterface, i) -> finishAffinity());
+        alert.setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss());
         alert.show();
     }
 

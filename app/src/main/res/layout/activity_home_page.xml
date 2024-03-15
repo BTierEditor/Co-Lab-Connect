@@ -44,7 +44,7 @@
   <LinearLayout
       android:orientation="vertical"
       android:layout_width="match_parent"
-      android:layout_marginBottom="63dp"
+      android:layout_marginBottom="60dp"
       android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
@@ -206,23 +206,16 @@
       android:layout_width="match_parent"
       android:layout_height="75dp"
       android:visibility="visible"
-      android:layout_alignParentBottom="true"
-      android:layout_marginHorizontal="10dp"
-      android:layout_marginVertical="10dp">
+      android:layout_alignParentBottom="true">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
         android:background="@drawable/bar_shape"
         android:layout_alignParentBottom="true"
-        android:elevation="5dp"
-        app:itemIconSize="25dp"
-        app:itemIconTint="@drawable/item_selected"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:itemHorizontalTranslationEnabled="true">
+        android:elevation="10dp">
 
       <LinearLayout
           android:layout_width="match_parent"
@@ -231,9 +224,8 @@
           android:orientation="horizontal">
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/navigation_home"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="45dp"
-            android:paddingHorizontal="30dp"
             android:layout_marginHorizontal="3dp"
             android:background="@drawable/navigation_button"
             android:src="@drawable/home_black"
@@ -241,9 +233,9 @@
             app:elevation="10dp" />
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/navigation_chat"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="45dp"
-            android:paddingHorizontal="30dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/navigation_button"
             android:layout_marginHorizontal="3dp"
             android:src="@drawable/chat_black"
@@ -253,9 +245,9 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/navigation_profile"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
+            android:layout_marginStart="20dp"
             android:layout_height="45dp"
-            android:paddingHorizontal="30dp"
             android:background="@drawable/navigation_button"
             android:layout_marginHorizontal="3dp"
             android:src="@drawable/profile_black"
@@ -265,8 +257,7 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/navigation_setting"
-            android:layout_width="wrap_content"
-            android:paddingHorizontal="30dp"
+            android:layout_width="70dp"
             android:layout_height="45dp"
             android:background="@drawable/navigation_button"
             android:layout_marginHorizontal="3dp"
@@ -285,6 +276,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_add_24"
         android:elevation="20dp"
+        android:background="@color/sky_blue"
+        android:backgroundTint="@color/sky_blue"
         app:layout_anchorGravity="center"
         android:layout_marginBottom="20dp"
         app:layout_anchor="@id/navigationbar"/>
