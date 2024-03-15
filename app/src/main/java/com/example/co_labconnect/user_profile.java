@@ -108,14 +108,12 @@ public class user_profile extends AppCompatActivity {
             }
         });
 
-        profilebtn.setVisibility(View.INVISIBLE);
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
                 profilebtn.setAnimation(animSlideout);
                 profilebtn.startAnimation(animSlideout);
-                profilebtn.setVisibility(View.INVISIBLE);
 
                 Intent intent = new Intent(getApplicationContext(),user_profile.class);
                 startActivity(intent);

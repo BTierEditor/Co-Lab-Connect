@@ -41,83 +41,83 @@
 
 
 
-    <LinearLayout
-        android:orientation="vertical"
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_marginBottom="63dp"
+      android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tweetcard"
         android:layout_width="match_parent"
-        android:layout_marginBottom="63dp"
-        android:layout_height="match_parent">
+        android:layout_height="150dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:visibility="gone"
 
+        android:layout_marginTop="60dp"
+        android:layout_marginHorizontal="05dp">
       <androidx.cardview.widget.CardView
-          android:id="@+id/tweetcard"
           android:layout_width="match_parent"
-          android:layout_height="150dp"
-          app:cardBackgroundColor="#FFFFFF"
-          app:cardCornerRadius="25dp"
-          app:cardElevation="10dp"
-          android:visibility="gone"
+          android:layout_height="50dp"
+          app:cardCornerRadius="20dp"
+          android:layout_marginTop="5dp"
+          android:backgroundTint="@color/white"
+          android:layout_marginHorizontal="5dp"
+          app:cardElevation="10dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:paddingVertical="-10dp"
+            android:src="@drawable/me"/>
 
-          android:layout_marginTop="60dp"
-          android:layout_marginHorizontal="05dp">
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:cardCornerRadius="20dp"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="@color/white"
-            android:layout_marginHorizontal="5dp"
-            app:cardElevation="10dp">
-          <ImageView
-              android:layout_width="50dp"
-              android:layout_height="match_parent"
-              android:paddingVertical="-10dp"
-              android:src="@drawable/me"/>
-
-
-          <TextView
-              android:id="@+id/tweet_name_showcase"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textColor="@color/black"
-              android:textSize="16dp"
-              android:text="Loading...."
-              android:layout_marginTop="5dp"
-              android:layout_marginStart="60dp"/>
-
-          <TextView
-              android:id="@+id/tweet_email_showcase"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textSize="10dp"
-              android:text="Loading...."
-              android:layout_marginTop="25dp"
-              android:layout_marginStart="60dp"/>
-
-        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/replace1"
+            android:id="@+id/tweet_name_showcase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginHorizontal="20dp"
             android:textColor="@color/black"
-            android:textSize="20sp"/>
+            android:textSize="16dp"
+            android:text="Loading...."
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="60dp"/>
+
+        <TextView
+            android:id="@+id/tweet_email_showcase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="Loading...."
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="60dp"/>
+
       </androidx.cardview.widget.CardView>
 
-
-
-      <androidx.recyclerview.widget.RecyclerView
+      <TextView
+          android:id="@+id/replace1"
           android:layout_width="match_parent"
-          android:id="@+id/Tweet_recycler"
-          app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            android:layout_height="wrap_content"
-          android:layout_marginTop="50dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="70dp"
+          android:layout_marginHorizontal="20dp"
+          android:textColor="@color/black"
+          android:textSize="20sp"/>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/Tweet_recycler"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         />
 
 
 
 
-    </LinearLayout>
+  </LinearLayout>
 
   <RelativeLayout
       android:id="@+id/post_btn"
@@ -170,7 +170,7 @@
           <RelativeLayout
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-            android:background="@color/light_gray">
+              android:background="@color/light_gray">
 
           </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -224,45 +224,57 @@
         app:labelVisibilityMode="unlabeled"
         app:itemHorizontalTranslationEnabled="true">
 
-      <androidx.appcompat.widget.AppCompatImageButton
-          android:id="@+id/navigation_home"
-          android:layout_width="63dp"
-          android:layout_height="45dp"
-          android:background="@drawable/navigation_home_btn_background"
-          android:layout_gravity="center_vertical"
-          android:src="@drawable/home_black"
-          android:clickable="true"
-          android:layout_marginStart="10dp"
-          app:elevation="10dp" />
-      <androidx.appcompat.widget.AppCompatImageButton
-          android:id="@+id/navigation_chat"
-          android:layout_width="63dp"
-          android:layout_height="45dp"
-          android:background="@drawable/navigation_button"
-          android:layout_gravity="center_vertical"
-          android:src="@drawable/chat_black"
-          android:layout_marginStart="79dp"
-          app:elevation="10dp" />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/navigation_home"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:paddingHorizontal="30dp"
+            android:layout_marginHorizontal="3dp"
+            android:background="@drawable/navigation_button"
+            android:src="@drawable/home_black"
+            android:clickable="false"
+            app:elevation="10dp" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/navigation_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:paddingHorizontal="30dp"
+            android:background="@drawable/navigation_button"
+            android:layout_marginHorizontal="3dp"
+            android:src="@drawable/chat_black"
+            android:tint="@color/white"
+            android:backgroundTint="@color/gray"
+            app:elevation="10dp" />
 
-      <androidx.appcompat.widget.AppCompatImageButton
-          android:id="@+id/navigation_profile"
-          android:layout_width="63dp"
-          android:layout_height="45dp"
-          android:background="@drawable/navigation_button"
-          android:layout_gravity="center_vertical"
-          android:src="@drawable/profile_black"
-          android:layout_marginStart="200dp"
-          app:elevation="10dp" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/navigation_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:paddingHorizontal="30dp"
+            android:background="@drawable/navigation_button"
+            android:layout_marginHorizontal="3dp"
+            android:src="@drawable/profile_black"
+            android:tint="@color/white"
+            android:backgroundTint="@color/gray"
+            app:elevation="10dp" />
 
-      <androidx.appcompat.widget.AppCompatImageButton
-          android:id="@+id/navigation_setting"
-          android:layout_width="63dp"
-          android:layout_height="45dp"
-          android:background="@drawable/navigation_home_btn_2"
-          android:layout_gravity="center_vertical"
-          android:src="@drawable/setting_black"
-          android:layout_marginStart="268dp"
-          app:elevation="10dp" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/navigation_setting"
+            android:layout_width="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:layout_height="45dp"
+            android:background="@drawable/navigation_button"
+            android:layout_marginHorizontal="3dp"
+            android:src="@drawable/setting_black"
+            android:tint="@color/white"
+            android:backgroundTint="@color/gray"
+            app:elevation="10dp" />
+      </LinearLayout>
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

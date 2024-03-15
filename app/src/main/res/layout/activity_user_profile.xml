@@ -293,45 +293,54 @@
             app:labelVisibilityMode="unlabeled"
             app:itemHorizontalTranslationEnabled="true">
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/navigation_home"
-                android:layout_width="63dp"
-                android:layout_height="45dp"
-                android:background="@drawable/navigation_home_btn_background"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/home_black"
-                android:clickable="true"
-                android:layout_marginStart="10dp"
-                app:elevation="10dp" />
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/navigation_chat"
-                android:layout_width="63dp"
-                android:layout_height="45dp"
-                android:background="@drawable/navigation_button"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/chat_black"
-                android:layout_marginStart="79dp"
-                app:elevation="10dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/navigation_home"
+                    android:layout_width="83dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/navigation_button"
+                    android:src="@drawable/home_black"
+                    android:clickable="true"
+                    android:tint="@color/white"
+                    android:backgroundTint="@color/gray"
+                    app:elevation="10dp" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/navigation_chat"
+                    android:layout_width="83dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/navigation_button"
+                    android:layout_marginHorizontal="5dp"
+                    android:src="@drawable/chat_black"
+                    android:visibility="visible"
+                    android:tint="@color/white"
+                    android:backgroundTint="@color/gray"
+                    app:elevation="10dp" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/navigation_profile"
-                android:layout_width="63dp"
-                android:layout_height="45dp"
-                android:background="@drawable/navigation_button"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/profile_black"
-                android:layout_marginStart="200dp"
-                app:elevation="10dp" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/navigation_profile"
+                    android:layout_width="83dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/navigation_button"
+                    android:layout_marginHorizontal="5dp"
+                    android:src="@drawable/profile_black"
+                    app:elevation="10dp" />
 
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/navigation_setting"
-                android:layout_width="63dp"
-                android:layout_height="45dp"
-                android:background="@drawable/navigation_home_btn_2"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/setting_black"
-                android:layout_marginStart="268dp"
-                app:elevation="10dp" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/navigation_setting"
+                    android:layout_width="83dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/navigation_button"
+                    android:layout_marginHorizontal="5dp"
+                    android:src="@drawable/setting_black"
+                    android:tint="@color/white"
+                    android:backgroundTint="@color/gray"
+                    app:elevation="10dp" />
+            </LinearLayout>
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

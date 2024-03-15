@@ -171,17 +171,14 @@ public class HomePage extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), ChatHall.class);
             startActivity(intent);
 
-            homebtn.setVisibility(View.INVISIBLE);
             profilebtn.setVisibility(View.VISIBLE);
             settingbtn.setVisibility(View.VISIBLE);
 
         });
-        homebtn.setVisibility(View.INVISIBLE);
         homebtn.setOnClickListener(view -> {
                 Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_up);
                 homebtn.setAnimation(animSlideout);
                 homebtn.startAnimation(animSlideout);
-                homebtn.setVisibility(View.INVISIBLE);
 
             Intent intent = new Intent(getApplicationContext(),HomePage.class);
             startActivity(intent);
@@ -296,7 +293,6 @@ public class HomePage extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         profilebtn.setVisibility(View.VISIBLE);
-        homebtn.setVisibility(View.INVISIBLE);
         navigationlay.setVisibility(View.VISIBLE);
         post.setVisibility(View.INVISIBLE);
         AlertDialog.Builder alert = new AlertDialog.Builder(HomePage.this);
