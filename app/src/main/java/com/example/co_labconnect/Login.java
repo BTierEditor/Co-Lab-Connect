@@ -38,11 +38,12 @@ public class Login extends AppCompatActivity {
     public static SharedPreferences.Editor sharedPreferencesEditor;
 
     TextInputEditText emailenter,passwordenter;
-    TextView regbtn;
+    TextView regbtn,forgot_password_btn;
     FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference databaseReference;
     LottieAnimationView loading;
+
 
 
     @Override
@@ -71,66 +72,85 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-
-//        Log.e("uid",currentuserid);
         loading = findViewById(R.id.loading);
         emailenter = findViewById(R.id.username_input);
         passwordenter = findViewById(R.id.password_input);
         regbtn= findViewById(R.id.Registerhere);
         lgnbtn=findViewById(R.id.login_button);
+        forgot_password_btn = findViewById(R.id.forgot_password_btn);
 
-        lgnbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //-===============================================================================//
 
-                loading.setVisibility(View.VISIBLE);
-                String email,password;
-                email = String.valueOf(emailenter.getText());
-                password = String.valueOf(passwordenter.getText());
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(getApplicationContext(), "Please enter Username", Toast.LENGTH_SHORT).show();
-                    loading.setVisibility(View.GONE);
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(getApplicationContext(), "Please enter password", Toast.LENGTH_SHORT).show();
-                    loading.setVisibility(View.GONE);
-                    return;
-                }
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    loading.setVisibility(View.GONE);
-                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(),HomePage.class);
-                                    startActivity(intent);
-                                    finish();
-                                    currentuserid = mAuth.getCurrentUser().getUid();
-                                    getName();
-                                    sharedPreferencesEditor.putBoolean("login", true);
-                                    sharedPreferencesEditor.putBoolean("login", true);
-                                    sharedPreferencesEditor.putString("Name", name);
-                                    sharedPreferencesEditor.commit();
-//                                    Log.e("UID",currentuserid);
-//                                    Toast.makeText(Login.this, currentuserid, Toast.LENGTH_SHORT).show();
-                                } else {
-                                    loading.setVisibility(View.GONE);
-                                    Toast.makeText(getApplicationContext(), "Invaild Email or Password", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+
+        forgot_password_btn.setOnClickListener(v -> {
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+
+            String emailAddress = emailenter.getText().toString();
+
+            if(TextUtils.isEmpty(emailAddress)){
+                Toast.makeText(getApplicationContext(), "Please enter Email", Toast.LENGTH_SHORT).show();
+                loading.setVisibility(View.GONE);
+                return;
             }
+
+            auth.sendPasswordResetEmail(emailAddress)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Login.this, "Email has been sent!", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(this, "Email Not Found", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
-        regbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Login.this,Register.class);
-                startActivity(intent);
-                finish();
+
+        //-===============================================================================//
+
+        lgnbtn.setOnClickListener(view -> {
+
+            loading.setVisibility(View.VISIBLE);
+            String email,password;
+            email = String.valueOf(emailenter.getText());
+            password = String.valueOf(passwordenter.getText());
+
+            if(TextUtils.isEmpty(email)){
+                Toast.makeText(getApplicationContext(), "Please enter Username", Toast.LENGTH_SHORT).show();
+                loading.setVisibility(View.GONE);
+                return;
             }
+            if(TextUtils.isEmpty(password)){
+                Toast.makeText(getApplicationContext(), "Please enter password", Toast.LENGTH_SHORT).show();
+                loading.setVisibility(View.GONE);
+                return;
+            }
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                loading.setVisibility(View.GONE);
+                                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),HomePage.class);
+                                startActivity(intent);
+                                finish();
+                                currentuserid = mAuth.getCurrentUser().getUid();
+                                getName();
+                                sharedPreferencesEditor.putBoolean("login", true);
+                                sharedPreferencesEditor.putBoolean("login", true);
+                                sharedPreferencesEditor.putString("Name", name);
+                                sharedPreferencesEditor.commit();
+                            } else {
+                                loading.setVisibility(View.GONE);
+                                Toast.makeText(getApplicationContext(), "Invaild Email or Password", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        });
+
+        regbtn.setOnClickListener(view -> {
+            Intent intent = new Intent(Login.this,Register.class);
+            startActivity(intent);
+            finish();
         });
     }
     @Override

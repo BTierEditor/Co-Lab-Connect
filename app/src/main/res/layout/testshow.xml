@@ -1,235 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@drawable/login_background"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".Setting">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    tools:context=".forgot_password">
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/email_input"
         android:layout_width="match_parent"
-        app:title="Settings"
-        app:titleMarginStart="30dp"
-        app:titleTextColor="@color/white"
-        android:layout_height="50dp"
-        android:layout_marginTop="3dp"
-        android:elevation="15dp"
-        android:background="@drawable/toolbar_shape">
-    </androidx.appcompat.widget.Toolbar>
-    <ScrollView
+        android:layout_marginTop="200dp"
+        android:background="@color/white"
+        android:hint="Enter Email"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="50dp"/>
+    <Button
+        android:id="@+id/sent_email_btn"
+        android:background="@drawable/register_login_btn_design"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="65dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@color/gray"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                app:cardCornerRadius="5dp"
-                android:layout_marginHorizontal="5dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/light_gray"
-                    android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        app:cardCornerRadius="20dp"
-                        android:layout_marginHorizontal="2dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:background="@color/sky_blue"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:gravity="center"
-                                android:layout_height="wrap_content"
-                                android:text="Profile Settings"
-                                android:textColor="@color/white"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/logout_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:textSize="12dp"
-                        android:layout_marginHorizontal="10dp"
-                        android:textColor="@color/red"
-                        android:background="@drawable/setting_button_design"
-                        android:text="Log out"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_marginTop="2dp"
-                        android:id="@+id/delete_account"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:textSize="12dp"
+        android:layout_marginHorizontal="50dp"
+        android:text="Sent Email"/>
 
-                        android:layout_marginHorizontal="10dp"
-                        android:textColor="@color/red"
-                        android:background="@drawable/setting_button_design"
-                        android:text="delete Account"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_marginTop="2dp"
-                        android:textSize="12dp"
-                        android:id="@+id/delete_tweets"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginHorizontal="10dp"
-                        android:textColor="@color/red"
-                        android:background="@drawable/setting_button_design"
-                        android:layout_marginBottom="10dp"
-                        android:text="Delete Tweets"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                app:cardCornerRadius="20dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/sky_blue">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Logout?"
-                                android:gravity="center"
-                                android:textSize="20dp"
-                                android:textColor="@color/red"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingHorizontal="5dp"
-                        android:text="Are you sure you want to logout?"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="18dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:background="@color/white">
-                        <LinearLayout
-                            android:layout_width="130dp"
-                            android:layout_height="match_parent">
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/setting_button_design"
-                                android:layout_gravity="center_vertical"
-                                android:backgroundTint="@color/red"
-                                android:gravity="center"
-                                android:layout_marginHorizontal="10dp"
-                                android:text="Yes"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="130dp"
-                            android:layout_height="match_parent">
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/setting_button_design"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginHorizontal="10dp"
-                                android:backgroundTint="@color/red"
-                                android:gravity="center"
-                                android:text="No"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/navigationlayout"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:visibility="visible"
-        android:layout_alignParentBottom="true">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigationbar"
-            android:layout_width="wrap_content"
-            android:paddingHorizontal="5dp"
-            android:layout_gravity="center"
-            android:layout_height="55dp"
-            android:background="@drawable/bar_shape"
-            android:layout_alignParentBottom="true"
-            android:elevation="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/navigation_home"
-                    android:layout_width="70dp"
-                    android:layout_height="45dp"
-                    android:layout_marginHorizontal="3dp"
-                    android:background="@drawable/navigation_button"
-                    android:backgroundTint="@color/gray"
-                    app:tint="@color/white"
-                    android:src="@drawable/home_black"
-                    android:clickable="false"
-                    app:elevation="10dp" />
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/navigation_chat"
-                    android:layout_width="70dp"
-                    android:layout_height="45dp"
-                    android:background="@drawable/navigation_button"
-                    android:layout_marginHorizontal="3dp"
-                    android:src="@drawable/chat_black"
-                    android:tint="@color/black"
-                    android:backgroundTint="@color/white"
-                    app:elevation="10dp" />
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/navigation_profile"
-                    android:layout_width="70dp"
-                    android:layout_height="45dp"
-                    android:background="@drawable/navigation_button"
-                    android:layout_marginHorizontal="3dp"
-                    android:src="@drawable/profile_black"
-                    android:tint="@color/white"
-                    android:backgroundTint="@color/gray"
-                    app:elevation="10dp" />
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/navigation_setting"
-                    android:layout_width="70dp"
-                    android:layout_height="45dp"
-                    android:background="@drawable/navigation_button"
-                    android:layout_marginHorizontal="3dp"
-                    android:src="@drawable/setting_black"
-                    android:tint="@color/white"
-                    android:backgroundTint="@color/gray"
-                    app:elevation="10dp" />
-            </LinearLayout>
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</RelativeLayout>
+</LinearLayout>
