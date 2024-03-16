@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Setting extends AppCompatActivity {
 
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn;
-    Button logout,delete_account_button,delete_tweets_button;
+    Button logout,delete_account_button,delete_tweets_button,Read_term_btn,change_password_btn;
     FirebaseUser user;
     FirebaseAuth mAuth;
 
@@ -39,12 +39,24 @@ public class Setting extends AppCompatActivity {
         logout=findViewById(R.id.logout_button);
         delete_account_button = findViewById(R.id.delete_account_button);
         delete_tweets_button = findViewById(R.id.delete_tweets_button);
+        Read_term_btn = findViewById(R.id.Read_term_btn);
+        change_password_btn = findViewById(R.id.change_password_btn);
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        
+
+        change_password_btn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(),password_reset_activity.class);
+            startActivity(intent);
+            finish();
+        });
+
         logout.setOnClickListener(view -> {
             logout_dilog();
+        });
+        Read_term_btn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), terms.class);
+            startActivity(intent);
         });
         delete_account_button.setOnClickListener(v -> {
             AlertDialog.Builder delete_user_alert = new AlertDialog.Builder(Setting.this);

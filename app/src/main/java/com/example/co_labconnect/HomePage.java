@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -180,8 +181,11 @@ public class HomePage extends AppCompatActivity {
         
         mapbtn.setOnClickListener(view -> {
             Toast.makeText(HomePage.this, "Welcome to JMap Beta "+namefromdatabase, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), map.class);
-            startActivity(intent);
+            Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/Jspm/@18.4722144,73.9369365,260m/data=!3m1!1e3!5m1!1e4?entry=ttu");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            startActivity(mapIntent);
+//            Intent intent = new Intent(getApplicationContext(), map.class);
+//            startActivity(intent);
         });
 
         thoughtsin.setOnTouchListener((view, motionEvent) -> {

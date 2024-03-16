@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Co-Lab Connect</string>
+    <string name="first_term">These terms and conditions outline the rules and regulations for the use of Collab Connect\'s app, located at Collab Connect.  By accessing this app, we assume you accept these terms and conditions. Do not continue to use Collab Connect if you do not agree to take all of the terms and conditions stated on this page.</string>
+    <string name="second_term">Other than the content you own, under these Terms, Collab Connect and/or its licensors own all the intellectual property rights and materials contained in this app.</string>
+    <string name="third_term">You are specifically restricted from all of the following: - Publishing any app material in any other media; - Selling, sublicensing and/or otherwise commercializing any app material; - Publicly performing and/or showing any app material; - Using this app in any way that is or may be damaging to this app; - Using this app contrary to applicable laws and regulations, or in any way may cause harm to the app, or to any person or business entity;</string>
+    <string name="four_term">In these app standard terms and conditions, \"User Content\" shall mean any audio, video, text, images or other material you choose to display on this app. By displaying User Content, you grant Collab Connect a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.  Your User Content must be your own and must not be invading any third-party\'s rights. Collab Connect reserves the right to remove any of your User Content from this app at any time without notice.</string>
+    <string name="five_term">Please read our Privacy Policy.</string>
+    <string name="six_term">In no event shall Collab Connect, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this app.</string>
+    <string name="seven_term">You hereby indemnify to the fullest extent Collab Connect from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the provisions of these Terms.</string>
+    <string name="eight_term">If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</string>
+    <string name="nine_term">Collab Connect is permitted to revise these Terms at any time as it sees fit, and by using this app you are expected to review these Terms on a regular basis.</string>
+
 </resources>

@@ -45,10 +45,12 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
     implementation("com.google.firebase:firebase-firestore:24.10.2")
     implementation ("com.google.firebase:firebase-bom:32.7.2")
     implementation("androidx.activity:activity:1.8.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }

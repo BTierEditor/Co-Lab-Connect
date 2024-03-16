@@ -17,6 +17,12 @@
         android:theme="@style/Theme.CoLabConnect"
         tools:targetApi="31">
         <activity
+            android:name=".password_reset_activity"
+            android:exported="false" />
+        <activity
+            android:name=".terms"
+            android:exported="false" />
+        <activity
             android:name=".forgot_password"
             android:exported="false" />
         <activity

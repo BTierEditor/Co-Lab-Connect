@@ -1,20 +1,29 @@
 package com.example.co_labconnect;
 
+import static java.security.AccessController.getContext;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.co_labconnect.Utils.AndroidUtil;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.StartupTime;
@@ -28,21 +37,25 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
 public class Profile extends AppCompatActivity {
 
-    LottieAnimationView proceedebtn;
+    Button proceedebtn;
     CheckBox tandc;
     EditText setup_name,setup_age,setup_enroll,setup_class,setup_number;
     FirebaseAuth mAuth;
     DatabaseReference userref;
-    ImageView profile_pic;
     String current_user;
     FirebaseUser user;
     StorageReference UserProfileImageRef;
-    Uri imageuri;
+    CircleImageView profilePic;
     String name,age,enroll,Class,number;
     DatabaseReference name_for_chat;
-
+    ActivityResultLauncher<Intent> imagePickLauncher;
+    Uri selectedImageUri;
 
     final static int galley_picker = 1;
     @Override
@@ -60,7 +73,7 @@ public class Profile extends AppCompatActivity {
 
         UserProfileImageRef = FirebaseStorage.getInstance().getReference().child("profile images");
 
-        profile_pic = findViewById(R.id.profile_picture);
+
         proceedebtn = findViewById(R.id.proceede_button);
         setup_number = findViewById(R.id.setup_number);
         setup_name = findViewById(R.id.setup_name);
@@ -68,18 +81,35 @@ public class Profile extends AppCompatActivity {
         setup_enroll = findViewById(R.id.setup_Enrollmentno);
         setup_class = findViewById(R.id.setup_class);
         tandc = findViewById(R.id.terms_and_conditions);
+        profilePic = findViewById(R.id.profile_image_view);
 
 
-        profile_pic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent gallery = new Intent();
-                gallery.setAction(Intent.ACTION_GET_CONTENT);
-                gallery.setType("image/*");
-                startActivityForResult(gallery,galley_picker);
-            }
+
+
+        profilePic.setOnClickListener(v -> {
+
+            ImagePicker.with(Profile.this).cropSquare().compress(512).maxResultSize(512,512)
+                    .createIntent(new Function1<Intent, Unit>() {
+                        @Override
+                        public Unit invoke(Intent intent) {
+                            imagePickLauncher.launch(intent);
+                            return null;
+                        }
+                    });
         });
 
+        imagePickLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if(result.getResultCode() == Activity.RESULT_OK){
+                        Intent data = result.getData();
+                        if(data!=null && data.getData()!=null){
+                            selectedImageUri = data.getData();
+//                            AndroidUtil.setProfilePic(getContext(),selectedImageUri,profilePic);
+                            profilePic.setImageURI(selectedImageUri);
+                        }
+                    }
+                }
+        );
         proceedebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,11 +187,4 @@ public class Profile extends AppCompatActivity {
         finish();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==galley_picker && data!=null && resultCode==RESULT_OK){
-            imageuri = data.getData();
-        }
-    }
 }
