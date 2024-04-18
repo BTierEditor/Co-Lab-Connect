@@ -16,8 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -29,8 +32,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.co_labconnect.HomePageRecycler.Tweet_Recycler_Adapter;
 import com.example.co_labconnect.HomePageRecycler.Tweet_Recycler_ModelClass;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,11 +45,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomePage extends AppCompatActivity {
 
@@ -53,6 +66,7 @@ public class HomePage extends AppCompatActivity {
     int i=0;
     RelativeLayout post;
     ImageView post_back_btn;
+    LottieAnimationView loading;
     EditText thoughtsin;
     Tweet_Recycler_Adapter adapter;
 
@@ -65,10 +79,11 @@ public class HomePage extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth mAuth;
     DatabaseReference userref,postref;
+    StorageReference storageReference;
     String currentuserid;
     String savecurrenttime,savecurrentdate,postrandomname;
     String namefromdatabase;
-
+    CircleImageView homepage_bg;
     RecyclerView recyclerView;
     ArrayList<Tweet_Recycler_ModelClass>  arrayList= new ArrayList<>();
 
@@ -77,7 +92,7 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        USERNAME =  sharedPreferences.getString("Name", "");
+//        USERNAME =  sharedPreferences.getString("Name", "");
         recyclerView=findViewById(R.id.Tweet_recycler);
         adapter = new Tweet_Recycler_Adapter(arrayList);
         recyclerView.setAdapter(adapter);
@@ -87,6 +102,24 @@ public class HomePage extends AppCompatActivity {
         userref = FirebaseDatabase.getInstance().getReference().child("Users");
         postref = FirebaseDatabase.getInstance().getReference().child("Posts").child(currentuserid);
         user = mAuth.getCurrentUser();
+        String uid = currentuserid+(".jpg");
+        storageReference = FirebaseStorage.getInstance().getReference("profiles").child(uid);
+        //-====================== test code-===============================//
+
+        try {
+            File file = File.createTempFile("tempfile",".jpg");
+            storageReference.getFile(file).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
+                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                    homepage_bg.setImageBitmap(bitmap);
+                }
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //-====================== test code-===============================//
 
         getData();
 
@@ -106,6 +139,9 @@ public class HomePage extends AppCompatActivity {
         post_button=findViewById(R.id.thoughtspostbtn);
         replace1=findViewById(R.id.replace1);
         textView = findViewById(R.id.User_name);
+        homepage_bg = findViewById(R.id.homepage_bg);
+        loading = findViewById(R.id.loading);
+        loading.setVisibility(View.VISIBLE);
 
 
 //        tweetuseremailshow.setText(user.getEmail());
@@ -117,6 +153,7 @@ public class HomePage extends AppCompatActivity {
                     namefromdatabase = datasnapshot.child("Name").getValue().toString();
                     tweetuseridshow.setText(namefromdatabase);
                     textView.setText(namefromdatabase);
+                    loading.setVisibility(View.GONE);
                 }
             }
 
@@ -281,6 +318,10 @@ public class HomePage extends AppCompatActivity {
         });
 
     }
+//-===============delete database-==========================//
+
+//-===============delete database-==========================//
+
     @Override
     public void onBackPressed() {
         profilebtn.setVisibility(View.VISIBLE);

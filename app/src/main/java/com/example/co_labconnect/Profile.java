@@ -19,11 +19,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.co_labconnect.Utils.AndroidUtil;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.StartupTime;
@@ -50,28 +51,26 @@ public class Profile extends AppCompatActivity {
     DatabaseReference userref;
     String current_user;
     FirebaseUser user;
-    StorageReference UserProfileImageRef;
+    StorageReference storageReference;
     CircleImageView profilePic;
     String name,age,enroll,Class,number;
     DatabaseReference name_for_chat;
     ActivityResultLauncher<Intent> imagePickLauncher;
     Uri selectedImageUri;
-
+    TextView tandc_btn;
     final static int galley_picker = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+    //-------------------------------Firebase---------------------------------------//
         mAuth = FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         current_user = mAuth.getCurrentUser().getUid();
-
         userref = FirebaseDatabase.getInstance().getReference().child("Users").child(current_user);
-        name_for_chat = FirebaseDatabase.getInstance().getReference().child("Name_for_chat");
+        storageReference = FirebaseStorage.getInstance().getReference();
+    //-------------------------------Firebase---------------------------------------//
 
-
-        UserProfileImageRef = FirebaseStorage.getInstance().getReference().child("profile images");
 
 
         proceedebtn = findViewById(R.id.proceede_button);
@@ -82,12 +81,19 @@ public class Profile extends AppCompatActivity {
         setup_class = findViewById(R.id.setup_class);
         tandc = findViewById(R.id.terms_and_conditions);
         profilePic = findViewById(R.id.profile_image_view);
+        tandc_btn = findViewById(R.id.tandc_btn);
+
+
+
+        tandc_btn.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), terms.class);
+            startActivity(i);
+        });
 
 
 
 
         profilePic.setOnClickListener(v -> {
-
             ImagePicker.with(Profile.this).cropSquare().compress(512).maxResultSize(512,512)
                     .createIntent(new Function1<Intent, Unit>() {
                         @Override
@@ -97,15 +103,15 @@ public class Profile extends AppCompatActivity {
                         }
                     });
         });
-
         imagePickLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if(result.getResultCode() == Activity.RESULT_OK){
                         Intent data = result.getData();
                         if(data!=null && data.getData()!=null){
                             selectedImageUri = data.getData();
-//                            AndroidUtil.setProfilePic(getContext(),selectedImageUri,profilePic);
                             profilePic.setImageURI(selectedImageUri);
+
+
                         }
                     }
                 }
@@ -119,6 +125,11 @@ public class Profile extends AppCompatActivity {
                 enroll = setup_enroll.getText().toString();
                 Class = setup_class.getText().toString();
                 number = setup_number.getText().toString();
+
+                String path = mAuth.getCurrentUser().getUid();
+                StorageReference ref = storageReference.child("profiles").child(path+".jpg");
+                ref.putFile(selectedImageUri);
+
 
                 if (TextUtils.isEmpty(name)){
                     Toast.makeText(Profile.this, "Please Enter name", Toast.LENGTH_SHORT).show();
@@ -148,17 +159,18 @@ public class Profile extends AppCompatActivity {
                     HashMap chat_names = new HashMap();
                     chat_names.put("Name",name);
 
-                    name_for_chat.updateChildren(chat_names).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isComplete()){
-                                Toast.makeText(Profile.this, "Complete", Toast.LENGTH_SHORT).show();
-                            }else{
-                                String error = task.getException().getMessage();
-                                Toast.makeText(Profile.this, "An Error Occured:"+error, Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+
+//                    name_for_chat.updateChildren(chat_names).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            if(task.isComplete()){
+//                                Toast.makeText(Profile.this, "Complete", Toast.LENGTH_SHORT).show();
+//                            }else{
+//                                String error = task.getException().getMessage();
+//                                Toast.makeText(Profile.this, "An Error Occured:"+error, Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
                     userref.updateChildren(usermap).addOnCompleteListener(new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {

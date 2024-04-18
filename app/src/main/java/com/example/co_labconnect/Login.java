@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -46,6 +47,8 @@ public class Login extends AppCompatActivity {
 
 
 
+
+
     @Override
     public void onStart() {
         sharedPreferences = getSharedPreferences("userLoggedIn", MODE_PRIVATE);
@@ -69,6 +72,17 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+//        Handler handler = new Handler();
+//        DatabaseReference dlt_data = FirebaseDatabase.getInstance().getReference().child("Posts");
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                dlt_data.setValue(null);
+//                handler.postDelayed(this, 60000); // 24
+//            }
+//        };
+//        handler.post(runnable);
 
         mAuth = FirebaseAuth.getInstance();
 

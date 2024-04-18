@@ -19,11 +19,11 @@ import android.widget.Toast;
 public class map extends AppCompatActivity {
 
     RelativeLayout click_213,click_214,click_215,click_dowm,click_up,click_216,click_207,click_201,click_203,
-            click_cc3,click_cc2,click_cc1,hall_click;
-    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203,card_cc3,card_cc2,card_cc1,navigation_pannel;
+            click_cc3,click_cc2,click_cc1,hallway;
+    CardView card_214,card_213,card_215,card_216,card_207,card_201,card_203,card_cc3,card_cc2,card_cc1,navigation_pannel,card_hallway;
     CardView box;
     AppCompatButton navigation,image,start_journey_button;
-    AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,
+    AppCompatImageButton card_214_closing,card_213_closing,card_215_closing,card_216_closing,card_hallway_closeing,
             card_207_closing,card_201_closing,card_203_closing,card_closing_cc3,card_closing_cc2,card_cc1_closeing;
     ImageView navigation_back_button,card_back_button;
     
@@ -82,12 +82,13 @@ public class map extends AppCompatActivity {
         click_cc1 = findViewById(R.id.click_cc1);
         card_cc1 = findViewById(R.id.card_cc1);
         card_cc1_closeing = findViewById(R.id.card_cc1_closeing);
-        
-        hall_click = findViewById(R.id.hall_click);
+
+        hallway = findViewById(R.id.hallway);
+        card_hallway_closeing = findViewById(R.id.card_hallway_closeing);
+        card_hallway = findViewById(R.id.card_hallway);
 
         navigation = findViewById(R.id.navigation_click);
         navigation_pannel = findViewById(R.id.navigation_pannel);
-
         navigation_back_button = findViewById(R.id.navigation_back_button);
 
         card_back_button = findViewById(R.id.card_back_button);
@@ -100,6 +101,71 @@ public class map extends AppCompatActivity {
         destination_location = findViewById(R.id.destination_location);
 
         box = findViewById(R.id.box_card);
+
+//-=========================================Hallway=================================================//
+        
+       hallway.setOnClickListener(v -> {
+            Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+            box.setVisibility(View.VISIBLE);
+            box.setAnimation(animSlide);
+            box.startAnimation(animSlide);
+            click_213.setClickable(false);
+            click_214.setClickable(false);
+            click_215.setClickable(false);
+            click_dowm.setClickable(false);
+            click_up.setClickable(false);
+            click_216.setClickable(false);
+            click_207.setClickable(false);
+            click_201.setClickable(false);
+            click_cc3.setClickable(false);
+            click_cc1.setClickable(false);
+           hallway.setClickable(false);
+
+
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                    box.setVisibility(View.GONE);
+                    box.setAnimation(animSlideout);
+                    box.startAnimation(animSlideout);
+
+                    Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                    card_hallway.setVisibility(View.VISIBLE);
+                    card_hallway.setAnimation(animSlide);
+                    card_hallway.startAnimation(animSlide);
+
+                    card_hallway_closeing.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Animation animSlideout= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.right_to_left);
+                            card_hallway.setAnimation(animSlideout);
+                            card_hallway.startAnimation(animSlideout);
+                            card_hallway.setVisibility(View.GONE);
+                            click_213.setClickable(true);
+                            click_214.setClickable(true);
+                            click_215.setClickable(true);
+                            click_dowm.setClickable(true);
+                            click_up.setClickable(true);
+                            click_216.setClickable(true);
+                            click_207.setClickable(true);
+                            click_201.setClickable(true);
+                            click_cc3.setClickable(true);
+                            click_cc1.setClickable(true);
+                           hallway.setClickable(true);
+
+                            Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
+                            box.setVisibility(View.VISIBLE);
+                            box.setAnimation(animSlide);
+                            box.startAnimation(animSlide);
+                        }
+                    });
+                }
+            });
+        });
+        
+//-=========================================Hallway=================================================//
+        
 
 //-=========================================213-=================================================//
         click_213.setOnClickListener(new View.OnClickListener() {
@@ -119,8 +185,9 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
-
+               hallway.setClickable(false);
+                
+                
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -151,7 +218,7 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -182,7 +249,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -215,7 +282,7 @@ public class map extends AppCompatActivity {
                                 click_cc3.setClickable(true);
                                 click_201.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -246,7 +313,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -279,7 +346,7 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -310,7 +377,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -342,7 +409,7 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -388,7 +455,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
 
                 image.setOnClickListener(new View.OnClickListener() {
@@ -421,7 +488,7 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -452,7 +519,7 @@ public class map extends AppCompatActivity {
                 click_201.setClickable(false);
                 click_cc3.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
 
                 image.setOnClickListener(new View.OnClickListener() {
@@ -486,7 +553,7 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -519,7 +586,7 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
 
 
@@ -554,7 +621,7 @@ public class map extends AppCompatActivity {
                                 click_201.setClickable(true);
                                 click_cc3.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -586,7 +653,7 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -620,7 +687,7 @@ public class map extends AppCompatActivity {
                                 click_cc3.setClickable(true);
                                 click_cc2.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -652,7 +719,7 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(false);
                 click_cc2.setClickable(false);
                 click_cc1.setClickable(false);
-                hall_click.setClickable(false);
+               hallway.setClickable(false);
 
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -686,7 +753,7 @@ public class map extends AppCompatActivity {
                                 click_cc3.setClickable(true);
                                 click_cc2.setClickable(true);
                                 click_cc1.setClickable(true);
-                                hall_click.setClickable(true);
+                               hallway.setClickable(true);
 
                                 Animation animSlide= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.left_to_right);
                                 box.setVisibility(View.VISIBLE);
@@ -700,13 +767,7 @@ public class map extends AppCompatActivity {
         });
 
         //-=========================================hall click=================================================//
-        
-        hall_click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(map.this, "Working", Toast.LENGTH_SHORT).show();
-            }
-        });
+
         //-=========================================navigation=================================================//
 
         navigation.setOnClickListener(new View.OnClickListener() {
@@ -758,7 +819,7 @@ public class map extends AppCompatActivity {
                 click_cc3.setClickable(true);
                 click_cc2.setClickable(true);
                 click_cc1.setClickable(true);
-                hall_click.setClickable(true);
+               hallway.setClickable(true);
 
             }
         });

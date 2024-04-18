@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
     Button register_btn;
@@ -49,6 +52,11 @@ public class Register extends AppCompatActivity {
         loginhere=findViewById(R.id.loginhere);
         mAuth = FirebaseAuth.getInstance();
         loading=findViewById(R.id.progressbar);
+
+
+        //-===============dataabse--==============//
+
+        //-===============dataabse--==============//
 
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override

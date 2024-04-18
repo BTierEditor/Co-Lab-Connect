@@ -100,6 +100,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_213"
         android:layout_width="match_parent"
+        android:background="@color/gray"
         android:layout_height="match_parent"
         android:layout_marginVertical="40dp"
         app:cardCornerRadius="30dp"
@@ -107,59 +108,43 @@
         android:visibility="gone"
 
         android:layout_marginHorizontal="10dp">
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatTextView
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Class Room 213"/>
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/card_213_closeing"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/previous_white"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/map_custom_button"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Class Room 213"/>
+            </LinearLayout>
 
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:src="@drawable/cabin_214" />
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/card_213_closeing"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/previous_white"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/map_custom_button"/>
-            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_height="560dp"
+                android:src="@drawable/class_213" />
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="vertical"
-                android:layout_marginTop="580dp">
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Class room 213 "
-                    android:textSize="20dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="This class contains"/>
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="Smart Board"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </RelativeLayout>
+                android:gravity="center"
+                android:textSize="18dp"
+                android:layout_height="match_parent"
+                android:text="Smart Class"/>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
     <RelativeLayout
         android:id="@+id/click_215"
@@ -267,7 +252,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="55dp"
-                android:src="@drawable/cabin_214" />
+                android:src="@drawable/plab_216" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/card_216_closeing"
@@ -344,7 +329,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="55dp"
-                android:src="@drawable/cabin_214" />
+                android:src="@drawable/cabin_207" />
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/card_207_closeing"
@@ -363,21 +348,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="Software Laboratory"
+                    android:text="Cabin 207"
                     android:textSize="20dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="This is software Lab"/>
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="for software testing/checking"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -392,6 +364,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_201"
         android:layout_width="match_parent"
+        android:background="@color/gray"
         android:layout_height="match_parent"
         android:layout_marginVertical="40dp"
         app:cardCornerRadius="30dp"
@@ -399,59 +372,44 @@
         android:visibility="gone"
 
         android:layout_marginHorizontal="10dp">
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatTextView
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Canin - 201"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="55dp"
-                android:src="@drawable/cabin_214" />
-
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/card_201_closeing"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/previous_white"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/map_custom_button"/>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="vertical"
-                android:layout_marginTop="580dp">
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/card_201_closeing"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/previous_white"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/map_custom_button"/>
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Cabin null"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Lab 201"/>
+            </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="This cabin belongs to"/>
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:gravity="center_horizontal"
-                    android:text="null"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </RelativeLayout>
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="match_parent"
+                android:layout_height="560dp"
+                android:src="@drawable/lab_201" />
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:layout_height="match_parent"
+                android:text="Network Lab"/>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
 
 
     <RelativeLayout
@@ -740,11 +698,60 @@
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
-        android:id="@+id/hall_click"
+        android:id="@+id/hallway"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_hallway"
+        android:layout_width="match_parent"
+        android:background="@color/gray"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="40dp"
+        app:cardCornerRadius="30dp"
+
+        android:visibility="gone"
+
+        android:layout_marginHorizontal="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/card_hallway_closeing"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/previous_white"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/map_custom_button"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Hallway"/>
+            </LinearLayout>
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="match_parent"
+                android:layout_height="560dp"
+                android:src="@drawable/hallway" />
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:layout_height="match_parent"
+                android:text="Main Junction"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 
     <androidx.cardview.widget.CardView

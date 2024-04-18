@@ -19,13 +19,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Setting extends AppCompatActivity {
 
     AppCompatImageButton homebtn,chatbtn,profilebtn,settingbtn;
-    Button logout,delete_account_button,delete_tweets_button,Read_term_btn,change_password_btn;
+    Button logout,delete_account_button,delete_tweets_button,Read_term_btn,change_password_btn,beta_map;
     FirebaseUser user;
     FirebaseAuth mAuth;
+    String currentuserid;
+    DatabaseReference cuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +47,21 @@ public class Setting extends AppCompatActivity {
         delete_account_button = findViewById(R.id.delete_account_button);
         delete_tweets_button = findViewById(R.id.delete_tweets_button);
         Read_term_btn = findViewById(R.id.Read_term_btn);
+        beta_map = findViewById(R.id.beta_map);
         change_password_btn = findViewById(R.id.change_password_btn);
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        //-======================test code-========================================//
+//        currentuserid = mAuth.getCurrentUser().getUid();
+//        Toast.makeText(this, ""+currentuserid, Toast.LENGTH_SHORT).show();
+        //-======================test code-========================================//
+
+
+        beta_map.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), map.class);
+            startActivity(intent);
+        });
 
         change_password_btn.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(),password_reset_activity.class);

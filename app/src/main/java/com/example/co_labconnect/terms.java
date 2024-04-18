@@ -1,5 +1,6 @@
 package com.example.co_labconnect;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +21,11 @@ public class terms extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(terms.this,HomePage.class);
+        startActivity(intent);
     }
 }

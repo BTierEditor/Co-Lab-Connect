@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_201"
+        android:layout_width="match_parent"
+        android:background="@color/gray"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="40dp"
+        app:cardCornerRadius="30dp"
+
+        android:visibility="visible"
+
+        android:layout_marginHorizontal="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/card_201_closeing"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/previous_white"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/map_custom_button"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Lab 201"/>
+            </LinearLayout>
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="match_parent"
+                android:layout_height="560dp"
+                android:src="@drawable/lab_201" />
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:layout_height="match_parent"
+                android:text="Network Lab"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

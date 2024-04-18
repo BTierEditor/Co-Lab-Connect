@@ -8,16 +8,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.co_labconnect.Chat_RecyclerView_Adapter;
 import com.example.co_labconnect.R;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.zip.Inflater;
 
 public class Tweet_Recycler_Adapter extends RecyclerView.Adapter<Tweet_Recycler_Adapter.ViewHolder> {
     ArrayList<Tweet_Recycler_ModelClass> arrayList;
-//    Tweet_Recycler_Adapter.TweetClicked tweetClicked;
 
     public Tweet_Recycler_Adapter(ArrayList<Tweet_Recycler_ModelClass> arrayList) {
         this.arrayList = arrayList;
@@ -55,7 +51,4 @@ public class Tweet_Recycler_Adapter extends RecyclerView.Adapter<Tweet_Recycler_
         }
 
     }
-//    public interface TweetClicked {
-//        public void ItemClicked(String Name,String Date,String Email,String Tweet);
-//    }
 }
